@@ -37,4 +37,4 @@ Nazo Playground API
     {"result":false}
     ```
 
-6. Edit `nazo-example/conf.yaml` as you like and restart the Nazo API server.
+6. Edit `examples/simple-nazo/conf.yaml` as you like and restart the Nazo API server.
