@@ -25,10 +25,11 @@ func NewHandler(c *config.Config) http.Handler {
 
 		pages = append(pages,
 			api.NazoPage{
-				Id:       c.Pages[i].Id,
-				NextId:   next,
-				Answer:   c.Pages[i].Answer,
-				Contents: c.Pages[i].Contents,
+				Id:          c.Pages[i].Id,
+				NextId:      next,
+				Answer:      c.Pages[i].Answer,
+				ContentType: c.Pages[i].ContentType,
+				Contents:    c.Pages[i].Contents,
 			})
 	}
 

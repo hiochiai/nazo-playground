@@ -24,9 +24,10 @@ type ServerConfig struct {
 }
 
 type PageConfig struct {
-	Id       string `yaml:"id"`
-	Answer   string `yaml:"answer"`
-	Contents string `yaml:"contents"`
+	Id          string `yaml:"id"`
+	Answer      string `yaml:"answer"`
+	ContentType string `yaml:"contentType"`
+	Contents    string `yaml:"contents"`
 }
 
 type pagesConfigFile struct {

@@ -16,10 +16,11 @@ type Handler struct {
 }
 
 type NazoPage struct {
-	Id       string
-	NextId   string
-	Answer   string
-	Contents string
+	Id          string
+	NextId      string
+	Answer      string
+	ContentType string
+	Contents    string
 }
 
 func NewHandler(pages []NazoPage) *Handler {
@@ -28,7 +29,7 @@ func NewHandler(pages []NazoPage) *Handler {
 
 	for i, page := range pages {
 		path := filepath.Join(PathPrefix, page.Id)
-		funcs[path] = makeGetPageHandler(page.Contents)
+		funcs[path] = makeGetPageHandler(page.ContentType, page.Contents)
 		if i == 0 {
 			funcs[PathPrefix] = funcs[path]     // Redirect to first page
 			funcs[PathPrefix+`/`] = funcs[path] // Redirect to first page
@@ -60,7 +61,7 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	handleFunc(w, r)
 }
 
-func makeGetPageHandler(contents string) func(w http.ResponseWriter, r *http.Request) {
+func makeGetPageHandler(contentType string, contents string) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, req *http.Request) {
 		if req.Method != http.MethodGet {
 			w.WriteHeader(http.StatusMethodNotAllowed)
@@ -69,7 +70,7 @@ func makeGetPageHandler(contents string) func(w http.ResponseWriter, r *http.Req
 
 		contents, _ = config.EvalPagesContents(contents)
 
-		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Content-Type", contentType)
 		w.WriteHeader(200)
 		_, _ = w.Write([]byte(contents))
 	}
