@@ -1,7 +1,9 @@
 Nazo Playground API
 ===================
 
-## Example
+## How to use
+
+![how-to-use](https://user-images.githubusercontent.com/29615019/153715441-a23dcc2a-8435-4c05-b458-a3493a80d628.gif)
 
 1. Run the Nazo API server.
 
