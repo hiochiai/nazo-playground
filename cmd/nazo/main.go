@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	golog "log"
 	"os"
 	"os/signal"
 	"strings"
@@ -57,6 +58,7 @@ func run(ctx context.Context) (error, int) {
 }
 
 func initLog(c *config.Config) {
+	log.Logger = golog.New(os.Stdout, "", golog.Ldate|golog.Ltime)
 	switch {
 	case strings.EqualFold(c.LogLevel, "debug"):
 		log.Level = log.LevelD
