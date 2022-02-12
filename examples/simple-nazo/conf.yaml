@@ -1,9 +1,22 @@
 pages:
+
   - id: e527513a-3916-441c-82bb-3d997c3a10d0
     answer: '2'
-    contents: "1 + 1 = ?"
+    contentsType: "text/plain"
+    contents: "1 + 1 = ?\n"
+
   - id: 05b1f9cf-8543-44e5-b54b-e367d8b93ab3
     answer: 't'
-    contents: "tone - one = ?"
-  - id: ec6789be-efae-44fb-9e91-1a413f3319ab
-    contents: ”Congratulations!!”
+    contentsType: "application/json"
+    contents: "{\"q\": \"tone - one = ?\"}\n"
+
+  - id: 1bc962c7-8bff-4873-9c34-5fb2c5fc43f2
+    answer: 't'
+    contentsType: "text/html; charset=UTF-8"
+    contents: |
+      <!DOCTYPE html>
+      <html lang="">
+        <body>
+          <img src="/static/image.gif">
+        </body>
+      </html>
