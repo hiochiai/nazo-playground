@@ -40,3 +40,7 @@ Nazo Playground API
     ```
 
 6. Edit `examples/simple-nazo/conf.yaml` as you like and restart the Nazo API server.
+
+## API Document
+
+https://hiochiai.github.io/nazo-playground/

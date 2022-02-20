@@ -1,0 +1,25 @@
+description: OK
+content:
+  '*':
+    schema:
+      type: string
+      description: |
+        Response body is `pages.contents` of configuration file.
+        And response Content-Type is `pages.contentsType` of configuration file.
+
+        If configuration file is:
+        ```yaml
+        pages:
+          - id: 05b1f9cf-8543-44e5-b54b-e367d8b93ab3
+            answer: 't'
+            contentsType: "application/json"
+            contents: "{\"q\": \"tone - one = ?\"}\n"
+        ```
+
+        Response of `GET /api/v1/nazo/{id}` is:
+        ```
+        Content-Type: application/json
+
+        {"q": "tone - one = ?"}
+        ```
+

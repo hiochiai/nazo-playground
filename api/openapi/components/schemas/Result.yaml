@@ -1,0 +1,12 @@
+title: a Result
+type: object
+properties:
+  result:
+    description: Whether the answer is correct(true) or not(false)
+    type: boolean
+  next:
+    description: ID of next nazo
+    type: string
+    minLength: 1
+required:
+  - result

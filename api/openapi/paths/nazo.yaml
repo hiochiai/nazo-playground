@@ -1,0 +1,9 @@
+get:
+  tags:
+    - nazo
+  summary: Get the first nazo
+  description: ''
+  operationId: getFirstNazo
+  responses:
+    '200':
+      $ref: ../components/responses/Nazo.yaml

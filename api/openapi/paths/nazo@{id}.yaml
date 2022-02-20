@@ -1,0 +1,15 @@
+get:
+  tags:
+    - nazo
+  summary: Get a nazo
+  description: ''
+  operationId: getNazoById
+  parameters:
+    - $ref: ../components/parameters/Id.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/Nazo.yaml
+    '404':
+      description: Nazo not found
+  security:
+    - api_key: []

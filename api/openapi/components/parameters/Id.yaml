@@ -1,0 +1,7 @@
+name: id
+in: path
+description: ID of nazo to return
+required: true
+schema:
+  type: string
+  minLength: 1

@@ -1,0 +1,19 @@
+post:
+  tags:
+    - nazo
+  summary: Upload an answer
+  description: ''
+  operationId: uploadNazoAnser
+  parameters:
+    - $ref: ../components/parameters/Id.yaml
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Result.yaml
+    '404':
+      description: Nazo not found
+  requestBody:
+    $ref: ../components/requestBodies/Answer.yaml
