@@ -1,6 +1,10 @@
 Nazo Playground API
 ===================
 
+## Example
+
+* [nazo-playground](https://nazo-playground.an.r.appspot.com/nazo/)
+
 ## How to use
 
 ![how-to-use](https://user-images.githubusercontent.com/29615019/153715441-a23dcc2a-8435-4c05-b458-a3493a80d628.gif)
