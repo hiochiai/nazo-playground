@@ -28,33 +28,27 @@ func (a *NazoServer) Serve(ctx context.Context) error {
 
 	log.If("server starting with port %v", a.server.Addr)
 
-	msgCh := make(chan string, 1)
+	errs := make(chan error, 1)
 	go func() {
 		if err := a.server.ListenAndServe(); err != nil {
 			if err != http.ErrServerClosed {
-				msgCh <- err.Error()
+				errs <- err
 			}
 		}
-		close(msgCh)
+		close(errs)
 	}()
 
 	log.I("server started")
 
-	var err error = nil
+	var err error
 
 	select {
-	case m, ok := <-msgCh:
-		if ok {
-			err = fmt.Errorf(m)
-		}
+	case err = <-errs:
+		log.E("server failed: " + err.Error())
 	case <-ctx.Done():
+		log.I("server stopping...")
 		_ = a.shutdown(3 * time.Second)
-	}
-
-	log.I("server stopping...")
-
-	if m, ok := <-msgCh; ok {
-		err = fmt.Errorf(m)
+		err = <-errs
 	}
 
 	log.I("server stopped")
