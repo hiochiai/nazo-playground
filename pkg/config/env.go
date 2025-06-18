@@ -23,7 +23,7 @@ func (c *Config) ConfigureWithEnv() error {
 		confFilePath := MakeConfYamlPath(v)
 		pages, err := parsePagesWithFile(confFilePath)
 		if err != nil {
-			fmt.Errorf("invalid value \"%v\" for environment value NAZO_CONF: %v", v, err)
+			return fmt.Errorf("invalid value \"%v\" for environment value NAZO_CONF: %w", v, err)
 		}
 		c.ConfDirPath = v
 		c.Pages = pages
