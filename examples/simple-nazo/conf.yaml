@@ -2,12 +2,12 @@ pages:
 
   - id: e527513a-3916-441c-82bb-3d997c3a10d0
     answer: '2'
-    contentsType: "text/plain"
+    contentType: "text/plain"
     contents: "1 + 1 = ?\n"
 
   - id: 05b1f9cf-8543-44e5-b54b-e367d8b93ab3
     answer: 't'
-    contentsType: "application/json"
+    contentType: "application/json"
     contents: "{\"q\": \"tone - one = ?\"}\n"
 
   - id: 1bc962c7-8bff-4873-9c34-5fb2c5fc43f2
