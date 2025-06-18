@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 )
 
@@ -17,7 +16,7 @@ func GetJsonRequestBody(r *http.Request) (map[string]interface{}, error) {
 func DecodeJsonRequestBody(r *http.Request, v interface{}) error {
 
 	defer func() {
-		_, _ = io.Copy(ioutil.Discard, r.Body)
+		_, _ = io.Copy(io.Discard, r.Body)
 	}()
 
 	if err := json.NewDecoder(r.Body).Decode(v); err != nil && err != io.EOF {
